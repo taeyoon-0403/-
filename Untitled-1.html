@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>정지우 ^ㅣ발</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #000428, #004e92);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      margin-top: 100px;
+      font-size: 48px;
+      color: #ff0066;
+      text-shadow: 0 0 10px #ff0066, 0 0 20px #ff0066, 0 0 30px #ff0066;
+      animation: pulse 2s infinite;
+    }
+
+    #btn {
+      margin-top: 80px;
+      padding: 20px 40px;
+      font-size: 24px;
+      font-weight: bold;
+      background: linear-gradient(45deg, #ff416c, #ff4b2b);
+      border: none;
+      border-radius: 15px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ff416c, 0 0 25px #ff4b2b;
+      transition: transform 0.2s ease;
+    }
+
+    #btn:hover {
+      transform: scale(1.1);
+    }
+
+    #result {
+      margin-top: 60px;
+      font-size: 24px;
+      color: #00ffff;
+      text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+    }
+
+    @keyframes pulse {
+      0% { text-shadow: 0 0 10px #ff0066; }
+      50% { text-shadow: 0 0 20px #ff66b2; }
+      100% { text-shadow: 0 0 10px #ff0066; }
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif') repeat;
+      background-size: cover;
+      z-index: -1;
+      opacity: 0.3;
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <h1>정지우 ^ㅣ발</h1>
+  <button id="btn">정지우 븅딱슨</button>
+  <div id="result">0명의 사람들이 정지우를 개갈련으로 알게되었습니다!</div>
+
+  <script>
+    let count = localStorage.getItem('jiwooCount');
+    if (!count) count = 0;
+    document.getElementById('result').textContent = `${count}명의 사람들이 정지우를 개갈련으로 알게되었습니다!`;
+
+    document.getElementById('btn').addEventListener('click', () => {
+      count++;
+      localStorage.setItem('jiwooCount', count);
+      document.getElementById('result').textContent = `${count}명의 사람들이 정지우를 개갈련으로 알게되었습니다!`;
+    });
+  </script>
+</body>
+</html>
